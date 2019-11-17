@@ -8,3 +8,6 @@ spring:
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
+logging:
+  level:
+    root: debug

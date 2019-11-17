@@ -1,21 +1,19 @@
 package com.hjy.springbootmybatisplus.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hjy.springbootmybatisplus.pojo.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
-
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
-
-    // 普通查询
-    User getUserByName(String userName);
-
-    IPage<List<User>> getUsersPage(Page page, @Param("query") User user);
-
-
+    /**
+     * 自定义查询
+     */
+    IPage<User> selectUserPage(Page<User> page, @Param(Constants.WRAPPER) Wrapper<User> queryWrapper);
 
 }

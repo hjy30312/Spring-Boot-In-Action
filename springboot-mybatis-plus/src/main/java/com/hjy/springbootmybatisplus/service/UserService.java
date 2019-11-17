@@ -10,6 +10,5 @@ public interface UserService extends IService<User> {
     int insertUser(User user);
     int updateUser(User user);
     int deleteUser(User user);
-    User findUserByName(String userName);
     IPage getUserPage(Page page, User user);
 }

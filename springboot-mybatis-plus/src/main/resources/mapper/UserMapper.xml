@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace必须和所描述接口的全类名保持一致  -->
+<mapper namespace="com.hjy.springbootmybatisplus.mapper.UserMapper">
+    <select id="selectUserPage"  resultType="com.hjy.springbootmybatisplus.pojo.User">
+        SELECT * FROM tbl_user ${ew.customSqlSegment}
+    </select>
+</mapper>

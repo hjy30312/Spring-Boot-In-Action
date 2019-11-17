@@ -31,11 +31,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public User findUserByName(String userName) {
-        return baseMapper.getUserByName(userName);
-    }
-
-    @Override
     public IPage getUserPage(Page page, User user) {
         return null;
     }
