@@ -1,18 +1,13 @@
 package com.hjy.springbootmybatisplus;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hjy.springbootmybatisplus.mapper.UserMapper;
-import com.hjy.springbootmybatisplus.pojo.User;
-import org.junit.Test;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.annotation.Resource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @MapperScan("com.hjy.springbootmybatisplus.mapper")
+@EnableScheduling
 public class SpringbootMybatisPlusApplication {
 
     public static void main(String[] args) {
