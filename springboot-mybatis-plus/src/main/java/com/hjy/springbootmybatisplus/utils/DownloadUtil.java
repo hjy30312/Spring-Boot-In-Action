@@ -1,5 +1,7 @@
 package com.hjy.springbootmybatisplus.utils;
 
+import com.alibaba.excel.EasyExcel;
+import com.hjy.springbootmybatisplus.utils.execlUtil.DemoData;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletResponse;
@@ -7,6 +9,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.List;
 
 /**
  * 用于各种下载
@@ -64,4 +67,20 @@ public class DownloadUtil {
         }
     }
 
+    /**
+     * 下载execl文件
+     * @param response
+     * @param fileName 文件名
+     * @param contentList 内容
+     * @throws IOException
+     */
+    public static void downloadEXECL(String fileName, List contentList, HttpServletResponse response) throws IOException {
+        // 这里注意 有同学反应使用swagger 会导致各种问题，请直接用浏览器或者用postman
+        response.setContentType("application/vnd.ms-excel");
+        response.setCharacterEncoding("utf-8");
+        // 这里URLEncoder.encode可以防止中文乱码 当然和easyexcel没有关系
+        fileName = URLEncoder.encode(fileName, "UTF-8");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
+        EasyExcel.write(response.getOutputStream(), DemoData.class).sheet("模板").doWrite(contentList);
+    }
 }

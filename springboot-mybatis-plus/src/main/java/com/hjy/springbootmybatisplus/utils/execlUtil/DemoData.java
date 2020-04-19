@@ -2,6 +2,8 @@ package com.hjy.springbootmybatisplus.utils.execlUtil;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @author hjy
  * @date 2020/4/19 22:59
@@ -20,6 +22,6 @@ public class DemoData {
     /**
      * 创建时间
      */
-    private Data createTime;
+    private Date createTime;
 
 }
